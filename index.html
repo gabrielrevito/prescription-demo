@@ -1,19 +1,569 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>My static Space</title>
-		<link rel="stylesheet" href="style.css" />
-	</head>
-	<body>
-		<div class="card">
-			<h1>Welcome to your static Space!</h1>
-			<p>You can modify this app directly by editing <i>index.html</i> in the Files and versions tab.</p>
-			<p>
-				Also don't forget to check the
-				<a href="https://huggingface.co/docs/hub/spaces" target="_blank">Spaces documentation</a>.
-			</p>
-		</div>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helio Pet - Advanced Pet Therapy at Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4a9d9c',
+                        secondary: '#f8b44d',
+                        accent: '#6a5acd',
+                        light: '#f9f9f9',
+                        dark: '#333333'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #4a9d9c 0%, #6a5acd 100%);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .section-divider {
+            height: 8px;
+            background: linear-gradient(90deg, #4a9d9c, #6a5acd, #f8b44d);
+        }
+        .hero-image {
+            background: linear-gradient(rgba(74, 157, 156, 0.7), rgba(106, 90, 205, 0.7)), url('https://ucarecdn.com/1c802128-ea12-4755-a75f-3379694e1211/-/format/auto/-/preview/3000x3000/-/quality/lighter/vt3-ie-1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(74, 157, 156, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl mr-2">HP</div>
+                <h1 class="text-2xl font-bold text-primary">Helio<span class="text-accent">Pet</span></h1>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#benefits" class="font-medium hover:text-primary transition">Benefits</a>
+                <a href="#how-it-works" class="font-medium hover:text-primary transition">How It Works</a>
+                <a href="#testimonials" class="font-medium hover:text-primary transition">Testimonials</a>
+                <a href="#features" class="font-medium hover:text-primary transition">Features</a>
+            </nav>
+            <div>
+                <button class="bg-secondary hover:bg-opacity-90 text-white font-bold py-2 px-6 rounded-full transition pulse">
+                    Get 50% Off
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-image text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Proven Pet Therapy Technology Now at Home</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">Relieve pain, reduce inflammation, and accelerate recovery for your beloved pet with our advanced LLLT device</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button class="bg-secondary hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-full text-lg transition">
+                    Shop Now - 50% Off
+                </button>
+                <button class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white font-bold py-3 px-8 rounded-full text-lg transition">
+                    <i class="fas fa-play-circle mr-2"></i> See How It Works
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose Helio Pet?</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Thousands of veterinarians trust this technology for animals in various stages of life</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-light p-8 rounded-xl shadow-md text-center">
+                    <div class="benefit-icon mx-auto mb-6">
+                        <i class="fas fa-running text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Increase Mobility</h3>
+                    <p class="text-gray-600">Help your pet regain their natural movement and enjoy activities they love again</p>
+                </div>
+                
+                <div class="feature-card bg-light p-8 rounded-xl shadow-md text-center">
+                    <div class="benefit-icon mx-auto mb-6">
+                        <i class="fas fa-bone text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Hip & Joint Support</h3>
+                    <p class="text-gray-600">Targeted therapy for hip dysplasia, arthritis, and joint discomfort</p>
+                </div>
+                
+                <div class="feature-card bg-light p-8 rounded-xl shadow-md text-center">
+                    <div class="benefit-icon mx-auto mb-6">
+                        <i class="fas fa-heartbeat text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Accelerate Recovery</h3>
+                    <p class="text-gray-600">Speed up healing from injuries, surgeries, or overuse conditions</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-primary bg-opacity-10 rounded-2xl p-8 md:p-12">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-2/3 mb-8 md:mb-0 md:pr-8">
+                        <h3 class="text-2xl md:text-3xl font-bold mb-4">The Problem with Vet Visits</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-dollar-sign text-secondary mt-1 mr-3"></i>
+                                <span>$80-100 per session several times per week adds up quickly</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-clock text-secondary mt-1 mr-3"></i>
+                                <span>Over an hour required per session including travel time</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-car text-secondary mt-1 mr-3"></i>
+                                <span>Stressful for pets to travel and be in unfamiliar environments</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/3 flex justify-center">
+                        <div class="bg-white p-6 rounded-xl shadow-lg w-full max-w-xs">
+                            <div class="text-center">
+                                <div class="text-5xl font-bold text-secondary mb-2">50%</div>
+                                <div class="text-xl font-bold mb-4">OFF</div>
+                                <p class="text-gray-600 mb-4">Limited time offer - lowest price ever!</p>
+                                <button class="w-full bg-primary hover:bg-opacity-90 text-white font-bold py-3 rounded-lg transition">
+                                    Check Availability
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">How Helio Pet Works</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Safe, effective, and scientifically proven therapy for your pet</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="mb-10">
+                        <div class="flex items-start mb-6">
+                            <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">1</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Immediate Pain Relief</h3>
+                                <p>When light is applied, it decreases nerve sensitivity by reducing bradykinin - a pain-inducing chemical. It also releases natural endorphins and enkephalins that block pain signals.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-6">
+                            <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">2</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Deep Healing & Anti-Inflammatory</h3>
+                                <p>Photons penetrate deep into tissues, increasing ATP in cells which accelerates cellular reproduction and growth. This helps tendons, ligaments, nerves, and muscles repair faster.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">3</div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-2">Long-Term Relief</h3>
+                                <p>Each treatment stimulates all tissue layers - muscles, joints, and connective tissues. By reducing inflammation and stimulating natural healing, lasting positive effects are achieved.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md">
+                        <div class="flex items-center">
+                            <div class="mr-4">
+                                <i class="fas fa-stopwatch text-3xl text-secondary"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold">Noticeable Results in 1 Week</h4>
+                                <p>When used 4 times per week as recommended</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center">
+                    <div class="relative">
+                        <img src="https://ucarecdn.com/ac258f8e-9472-4e02-8b27-551c475b5b3f/new%2043%20_2_.gif" alt="How Helio Pet works" class="rounded-xl shadow-lg w-full max-w-lg">
+                        <div class="absolute -bottom-6 -right-6 bg-secondary text-white py-3 px-6 rounded-lg shadow-lg">
+                            <div class="flex items-center">
+                                <i class="fas fa-check-circle text-xl mr-2"></i>
+                                <span class="font-bold">Safe & Effective</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Real Results from Pet Owners</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">See how Helio Pet has transformed the lives of pets and their families</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-light p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://ucarecdn.com/0aa07a60-1524-47fb-ad7a-781b64a0a91a/-/format/auto/-/preview/100x100/-/quality/lighter/dkw-1.png" alt="Jane A." class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-lg">Jane A.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Our Vet was surprised by the progress! She went from having a hard time getting out of bed in the mornings to becoming a lot more agile and back to her happy self!! She's such a joy. I swear by this product now."</p>
+                    <div class="flex items-center text-gray-500">
+                        <i class="fas fa-thumbs-up mr-2"></i>
+                        <span>1,183 people found this helpful</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-light p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://ucarecdn.com/4a6231d0-8b74-4df4-ac8e-21edcbda748e/-/format/auto/-/preview/3000x3000/-/quality/lighter/new2-2.jpg" alt="Linda B." class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-lg">Linda B.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Absolutely love this product! We have a terrier, she's been struggling for a few years but these last couple months pushed us to look at more options. We didn't like giving her pills because it changed her personality. It took about a month for us and yes this has helped immensely."</p>
+                    <div class="flex items-center text-gray-500">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>5 minutes ago</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card bg-light p-8 rounded-xl shadow-md">
+                    <div class="flex items-center mb-6">
+                        <img src="https://ucarecdn.com/5f3b7f70-73df-431e-885f-e5bf319398ec/-/format/auto/-/preview/3000x3000/-/quality/lighter/ndb-2.jpg" alt="Robert G." class="w-16 h-16 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-lg">Robert G.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic mb-4">"Huge improvement for me and my pup! I have gone to the vet for treatments and it has helped both our pups, but it is a time consuming process and yes a little pricey going there. I see this does the same if not better and I've been using it on my hands as well."</p>
+                    <div class="flex items-center text-gray-500">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>11 minutes ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Advanced Technology Designed for Pets</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Engineered with safety and effectiveness as our top priorities</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                <div class="order-2 lg:order-1">
+                    <img src="https://ucarecdn.com/d2df3529-3295-43f8-8fe2-f4b945c954c3/-/format/auto/-/preview/3000x3000/-/quality/lighter/new-vt-1.jpg" alt="Helio Pet Device" class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6">Safety First Design</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-full mr-4">
+                                <i class="fas fa-temperature-low text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">No Excessive Heat</h4>
+                                <p>Uses cold laser therapy technology with heat reduction prism delivering a cool and safe light treatment</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-full mr-4">
+                                <i class="fas fa-paw text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Comfortable for Pets</h4>
+                                <p>Light only raises temperature of treated area by a few degrees while soothing surrounding muscles</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-primary bg-opacity-10 p-2 rounded-full mr-4">
+                                <i class="fas fa-heart text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Very Relaxing</h4>
+                                <p>Pets tend to love their sessions due to the soothing, relaxing effect and increased blood circulation</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6">Fast & Effective Treatment</h3>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">Treatment Times by Area</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <div class="font-bold">Hip Dysplasia</div>
+                                <div class="text-secondary">3 Minutes</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <div class="font-bold">Elbow</div>
+                                <div class="text-secondary">2 Minutes</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <div class="font-bold">Wounds</div>
+                                <div class="text-secondary">2 Minutes</div>
+                            </div>
+                            <div class="bg-white p-4 rounded-lg shadow">
+                                <div class="font-bold">Back Pain</div>
+                                <div class="text-secondary">3 Minutes</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-primary bg-opacity-10 p-6 rounded-xl">
+                        <h4 class="font-bold text-lg mb-3">Unique Features</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-secondary mr-2"></i>
+                                <span>Head is 340% bigger for faster treatment (3 min vs 10-20 min)</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-secondary mr-2"></i>
+                                <span>5 Dense Laser Diodes with 3 Power Modes</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-secondary mr-2"></i>
+                                <span>Wavelengths: 660nm and 850nm for optimal penetration</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-secondary mr-2"></i>
+                                <span>Perfect for restless pets - sessions finish in 2-3 minutes</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <img src="https://ucarecdn.com/b4baa282-2cb2-4bc2-8495-ae9db96008ef/-/format/auto/-/preview/3000x3000/-/quality/lighter/pm-new.jpg" alt="Fast Treatment" class="rounded-xl shadow-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Transform Your Pet's Life Today</h2>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">Join thousands of pet owners who have discovered the power of at-home LLLT therapy</p>
+            
+            <div class="bg-white bg-opacity-20 rounded-2xl p-8 max-w-4xl mx-auto mb-10">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl">
+                        <div class="text-3xl font-bold mb-2">50%</div>
+                        <div class="text-lg">OFF Regular Price</div>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl">
+                        <div class="text-3xl font-bold mb-2">3-7</div>
+                        <div class="text-lg">Minutes Per Session</div>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-6 rounded-xl">
+                        <div class="text-3xl font-bold mb-2">4x</div>
+                        <div class="text-lg">Per Week Recommended</div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button class="bg-secondary hover:bg-opacity-90 text-white font-bold py-4 px-8 rounded-full text-lg transition pulse">
+                        Get My Helio Pet Now
+                    </button>
+                    <button class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white font-bold py-4 px-8 rounded-full text-lg transition">
+                        <i class="fas fa-shipping-fast mr-2"></i> Free Shipping
+                    </button>
+                </div>
+            </div>
+            
+            <div class="flex items-center justify-center text-sm">
+                <i class="fas fa-exclamation-circle mr-2"></i>
+                <span>Limited stock available - Order now to secure your discount</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Everything you need to know about Helio Pet</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="border-b border-gray-200 pb-6 mb-6">
+                    <h3 class="text-xl font-bold mb-3">How does Helio Pet compare to other devices?</h3>
+                    <p>Helio Pet has substantially higher "Irradiance" which is hard to achieve unless engineered correctly. It needs to be safe yet effective. If a device can't make it through the skin barrier/fur, it will be unlikely to produce positive effects.</p>
+                </div>
+                
+                <div class="border-b border-gray-200 pb-6 mb-6">
+                    <h3 class="text-xl font-bold mb-3">Is it safe for all pet sizes and fur types?</h3>
+                    <p>Yes! This device works regardless of size or how much fur because it's powerful enough to penetrate deep, providing relief and accelerating the natural healing process.</p>
+                </div>
+                
+                <div class="border-b border-gray-200 pb-6 mb-6">
+                    <h3 class="text-xl font-bold mb-3">What wavelengths does it use?</h3>
+                    <p>The device uses therapeutic wavelengths of 660nm (red light) and 850nm (near-infrared) which have been scientifically proven for healing and pain relief.</p>
+                </div>
+                
+                <div class="border-b border-gray-200 pb-6 mb-6">
+                    <h3 class="text-xl font-bold mb-3">How soon will I see results?</h3>
+                    <p>It typically takes a week to see a noticeable difference in your pet's health when you use it 4 times a week as recommended.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-3">What comes with my purchase?</h3>
+                    <p>Your Helio Pet comes with comprehensive videos and tutorials, safety goggles, charging cable, and a 30-day money-back guarantee.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-lg mr-2">HP</div>
+                        <h2 class="text-2xl font-bold">Helio<span class="text-secondary">Pet</span></h2>
+                    </div>
+                    <p class="text-gray-400 mb-4">Advanced pet therapy technology for pain relief, healing, and improved mobility.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#benefits" class="text-gray-400 hover:text-white transition">Benefits</a></li>
+                        <li><a href="#how-it-works" class="text-gray-400 hover:text-white transition">How It Works</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition">Testimonials</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Shipping Info</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Returns</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Warranty</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe for pet care tips and special offers</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l-lg text-dark">
+                        <button class="bg-primary hover:bg-opacity-90 px-4 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 Helio Pet. All rights reserved. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button class="bg-secondary hover:bg-opacity-90 text-white font-bold py-4 px-6 rounded-full shadow-lg flex items-center pulse">
+            <i class="fas fa-shopping-cart mr-2"></i>
+            <span>Get 50% Off</span>
+        </button>
+    </div>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=gabrielrevito/heliopet-v2" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
 </html>

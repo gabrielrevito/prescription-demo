@@ -1,10 +1,12 @@
 ---
-title: Heliopet V2
-emoji: 🏆
-colorFrom: pink
-colorTo: pink
+title: heliopet-v2
+emoji: 🐳
+colorFrom: gray
+colorTo: blue
 sdk: static
 pinned: false
+tags:
+  - deepsite
 ---
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
