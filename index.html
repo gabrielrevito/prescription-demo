@@ -1,153 +1,156 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SQL Natural - Converse com seu Banco de Dados</title>
+    <title>Intelligent Customer Support for Prescription</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
         }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        .gradient-text {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(90deg, #3b82f6, #8b5cf6);
         }
-        
-        .glow {
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        .hover-scale {
+            transition: transform 0.3s ease;
         }
-        
-        .step-number {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background-color: #3b82f6;
-            color: white;
-            font-weight: bold;
-            margin-right: 16px;
+        .hover-scale:hover {
+            transform: scale(1.03);
         }
-        
-        @media (max-width: 768px) {
-            .hero-content {
-                flex-direction: column-reverse;
-            }
+        .bullet-icon {
+            color: #3b82f6;
+            margin-right: 12px;
+        }
+        .step-card {
+            border-left: 4px solid #3b82f6;
+            transition: all 0.3s ease;
+        }
+        .step-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
-<body class="min-h-screen">
-    <!-- Header/Navbar -->
-    <header class="gradient-bg sticky top-0 z-50">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
-                        <i class="fas fa-database text-white text-xl"></i>
+<body class="font-sans bg-gray-50">
+    <!-- Hero Section -->
+    <header class="relative bg-gradient-to-br from-blue-50 to-purple-50 py-20 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
+                <span class="gradient-text">Intelligent Customer Support</span><br>
+                for Prescription in 7 Days
+            </h1>
+            <h2 class="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
+                Available 24/7, understands context, and hands off to humans when needed
+            </h2>
+            
+            <!-- Video Embed -->
+            <div class="relative aspect-video max-w-4xl mx-auto rounded-xl overflow-hidden shadow-xl mb-12 hover-scale">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/xS-F2qirWiw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16">
+                <a href="https://n8n-n8n.edklgn.easypanel.host/webhook/c2a6b9d7-c968-4632-bc42-530ca22daa46/chat" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-robot mr-2"></i> Test it Yourself
+                </a>
+                <a href="https://tidycal.com/bglab/45-minute-meeting-1yv06we-1jxjrve" class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg border border-blue-200">
+                    <i class="fas fa-calendar-alt mr-2"></i> Schedule Quick Meeting
+                </a>
+            </div>
+            
+            <div class="animate-fade-in opacity-0">
+                <div class="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span class="text-sm">24/7 Availability</span>
                     </div>
-                    <span class="text-xl font-bold text-white">SQL Natural</span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-gray-300 hover:text-white transition">Recursos</a>
-                    <a href="#how-it-works" class="text-gray-300 hover:text-white transition">Como Funciona</a>
-                    <a href="#use-cases" class="text-gray-300 hover:text-white transition">Casos de Uso</a>
-                    <a href="#testimonials" class="text-gray-300 hover:text-white transition">Depoimentos</a>
-                </div>
-                <div>
-                    <a href="#demo" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition duration-300">
-                        Demonstração Gratuita
-                    </a>
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span class="text-sm">Multi-language Support</span>
+                    </div>
+                    <div class="flex items-center bg-white px-4 py-2 rounded-full shadow-sm">
+                        <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                        <span class="text-sm">CRM Integration</span>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="gradient-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 hero-content flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-12 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
-                    Converse com o Seu Banco de Dados — Apenas com Texto ou Voz
-                </h1>
-                <p class="text-xl text-gray-300 mb-8">
-                    Obtenha respostas em tempo real do seu banco de dados SQL sem escrever uma única linha de código. Combinamos IA e Automação para isso.
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#demo" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition duration-300 text-center glow">
-                        Agendar Demonstração Gratuita
-                    </a>
-                    <a href="#features" class="px-6 py-3 border border-gray-600 text-white font-medium rounded-lg transition duration-300 hover:bg-gray-800 text-center">
-                        Ver Recursos
-                    </a>
-                </div>
-                <div class="mt-8 flex items-center space-x-4">
-                    <div class="flex -space-x-2">
-                        <img class="w-10 h-10 rounded-full border-2 border-gray-800" src="https://randomuser.me/api/portraits/women/44.jpg" alt="User 1">
-                        <img class="w-10 h-10 rounded-full border-2 border-gray-800" src="https://randomuser.me/api/portraits/men/32.jpg" alt="User 2">
-                        <img class="w-10 h-10 rounded-full border-2 border-gray-800" src="https://randomuser.me/api/portraits/women/68.jpg" alt="User 3">
+    <!-- Why This Matters Section -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">
+                Why This Matters for <span class="gradient-text">Prescription</span>
+            </h2>
+            
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-bolt bullet-icon mt-1"></i>
+                            <span>Answers instantly in any language – No "we'll get back to you tomorrow", just flawless human-sounding replies at any hour.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-book bullet-icon mt-1"></i>
+                            <span>Built from your real content – Trained on your FAQ, policies, and internal docs, ensuring accurate and consistent information.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-robot bullet-icon mt-1"></i>
+                            <span>Two-Agent System – One retrieves the exact answer, the other rewrites it in a friendly, client-centric tone.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-brain bullet-icon mt-1"></i>
+                            <span>Remembers conversations – Keeps context, remembers names, and can pick up from where the client left off.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-share-alt bullet-icon mt-1"></i>
+                            <span>Multi-channel integration – Website, WhatsApp, Instagram DMs, Facebook, SMS and more, all in a single system.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-tags bullet-icon mt-1"></i>
+                            <span>Automatic classification – See instantly which conversations are resolved automatically, which need a human, and which are complaints, compliments, or common questions.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-heartbeat bullet-icon mt-1"></i>
+                            <span>Sentiment analysis in real-time – Understand client mood and act on dissatisfaction before it escalates.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chart-line bullet-icon mt-1"></i>
+                            <span>Actionable insights – Know exactly what percentage of conversations are complaints, common questions, or positive feedback — and why.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-database bullet-icon mt-1"></i>
+                            <span>Full CRM integration – Every conversation logged, classified, and ready for follow-up or review.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-clock bullet-icon mt-1"></i>
+                            <span>No sick days, no downtime – Consistent quality across all channels, at a fraction of the cost of even one employee.</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-12 text-center">
+                        <a href="https://tidycal.com/bglab/45-minute-meeting-1yv06we-1jxjrve" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-phone-alt mr-2"></i> Schedule Your Call
+                        </a>
                     </div>
-                    <div>
-                        <p class="text-sm text-gray-300">+200 empresas usando</p>
-                        <div class="flex items-center">
-                            <i class="fas fa-star text-yellow-400 mr-1"></i>
-                            <i class="fas fa-star text-yellow-400 mr-1"></i>
-                            <i class="fas fa-star text-yellow-400 mr-1"></i>
-                            <i class="fas fa-star text-yellow-400 mr-1"></i>
-                            <i class="fas fa-star text-yellow-400 mr-1"></i>
-                            <span class="text-sm ml-1">5.0</span>
-                        </div>
-                    </div>
                 </div>
-            </div>
-            <div class="md:w-1/2">
-                <div class="relative">
-                    <div class="absolute -top-6 -left-6 w-32 h-32 bg-blue-500 rounded-full filter blur-3xl opacity-20"></div>
-                    <div class="absolute -bottom-8 -right-8 w-32 h-32 bg-purple-500 rounded-full filter blur-3xl opacity-20"></div>
-                    <div class="relative bg-gray-800 rounded-xl overflow-hidden border border-gray-700 shadow-xl">
-                        <div class="bg-gray-900 px-4 py-3 flex items-center">
-                            <div class="flex space-x-2 mr-4">
-                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            </div>
-                            <div class="text-sm text-gray-400">dashboard.sql</div>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex items-center mb-6">
-                                <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center mr-4">
-                                    <i class="fas fa-user text-white"></i>
-                                </div>
-                                <div class="bg-gray-700 px-4 py-2 rounded-lg">
-                                    <p class="text-gray-300">Mostre os 5 clientes que mais compraram no último mês</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center mr-4">
-                                    <i class="fas fa-robot text-white"></i>
-                                </div>
-                                <div class="bg-gray-700 px-4 py-2 rounded-lg">
-                                    <div class="text-green-400 mb-1">SELECT nome, SUM(valor) as total_compras FROM clientes JOIN pedidos ON clientes.id = pedidos.cliente_id WHERE data_pedido >= DATE_SUB(NOW(), INTERVAL 1 MONTH) GROUP BY cliente_id ORDER BY total_compras DESC LIMIT 5;</div>
-                                    <div class="text-gray-300">
-                                        <p>1. João Silva - R$12.450,00</p>
-                                        <p>2. Maria Souza - R$9.800,00</p>
-                                        <p>3. Carlos Oliveira - R$7.200,00</p>
-                                        <p>4. Ana Costa - R$6.500,00</p>
-                                        <p>5. Pedro Santos - R$5.750,00</p>
-                                    </div>
-                                </div>
-                            </div>
+                
+                <div class="lg:w-1/2 flex items-center">
+                    <div class="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-8 shadow-xl hover-scale">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Customer Support" class="rounded-xl w-full h-auto shadow-md">
+                        <div class="mt-6">
+                            <h3 class="text-xl font-bold text-gray-800 mb-3">Real-time Support Dashboard</h3>
+                            <p class="text-gray-600">Monitor all customer interactions across channels with our intuitive dashboard that provides real-time insights and analytics.</p>
                         </div>
                     </div>
                 </div>
@@ -155,290 +158,154 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-16 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Transforme Perguntas em Dados</h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Nossa plataforma torna a análise de dados acessível para todos na sua empresa</p>
-            </div>
+    <!-- Results Section -->
+    <section class="py-20 px-4 bg-gradient-to-br from-blue-50 to-purple-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">
+                The Results You Can <span class="gradient-text">Expect</span>
+            </h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="feature-card bg-gray-800 p-8 rounded-xl transition duration-300 hover:border-blue-500 border border-gray-700">
-                    <div class="text-4xl mb-6">🧠</div>
-                    <h3 class="text-xl font-bold mb-3">Linguagem Natural para SQL</h3>
-                    <p class="text-gray-400">Fale ou digite sua pergunta — nossa IA transforma em SQL com precisão e busca a resposta instantaneamente.</p>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover-scale">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-clock text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">100% Availability</h3>
+                    <p class="text-gray-600">24/7 replies without staff costs.</p>
                 </div>
                 
-                <div class="feature-card bg-gray-800 p-8 rounded-xl transition duration-300 hover:border-blue-500 border border-gray-700">
-                    <div class="text-4xl mb-6">🎧</div>
-                    <h3 class="text-xl font-bold mb-3">Funciona com Voz e Texto</h3>
-                    <p class="text-gray-400">Faça perguntas em movimento com comandos de voz. Ideal para equipes externas e operações rápidas.</p>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover-scale">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Up to 80% fewer repetitive tickets</h3>
+                    <p class="text-gray-600">More time for meaningful client interactions.</p>
                 </div>
                 
-                <div class="feature-card bg-gray-800 p-8 rounded-xl transition duration-300 hover:border-blue-500 border border-gray-700">
-                    <div class="text-4xl mb-6">⚙️</div>
-                    <h3 class="text-xl font-bold mb-3">Sem Código. Sem Desenvolvedor.</h3>
-                    <p class="text-gray-400">Feito para equipes não técnicas. Qualquer pessoa pode consultar o banco de dados com facilidade.</p>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover-scale">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-comments text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Consistent tone & accuracy</h3>
+                    <p class="text-gray-600">No more miscommunication.</p>
                 </div>
                 
-                <div class="feature-card bg-gray-800 p-8 rounded-xl transition duration-300 hover:border-blue-500 border border-gray-700">
-                    <div class="text-4xl mb-6">💬</div>
-                    <h3 class="text-xl font-bold mb-3">WhatsApp, Telegram ou Web</h3>
-                    <p class="text-gray-400">Integra-se com as ferramentas que você já usa — sem precisar mudar de plataforma.</p>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover-scale">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-globe text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">Multi-language support</h3>
+                    <p class="text-gray-600">One system that speaks to every client.</p>
                 </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <a href="https://tidycal.com/bglab/45-minute-meeting-1yv06we-1jxjrve" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-calendar-check mr-2"></i> Schedule Your Call
+                </a>
             </div>
         </div>
     </section>
 
     <!-- How It Works Section -->
-    <section id="how-it-works" class="py-16 gradient-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Como Funciona</h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Três passos simples para transformar suas perguntas em insights</p>
-            </div>
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 text-gray-900">
+                How It <span class="gradient-text">Works</span>
+            </h2>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700">
-                    <div class="flex items-center mb-6">
-                        <div class="step-number">1</div>
-                        <h3 class="text-xl font-bold">Faça uma Pergunta</h3>
-                    </div>
-                    <p class="text-gray-400">Envie uma mensagem como 'Qual é nosso produto mais caro?' via WhatsApp, Telegram ou Web.</p>
+                <div class="step-card bg-gray-50 p-8 rounded-lg">
+                    <div class="text-4xl font-bold text-blue-600 mb-4">1</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">We collect & train the system on your existing content</h3>
+                    <p class="text-gray-600">We analyze your FAQs, policies, and documentation to create a knowledge base for the AI.</p>
                 </div>
                 
-                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700">
-                    <div class="flex items-center mb-6">
-                        <div class="step-number">2</div>
-                        <h3 class="text-xl font-bold">A IA Traduz</h3>
-                    </div>
-                    <p class="text-gray-400">Nosso sistema transforma sua mensagem em uma consulta SQL e executa no banco de dados.</p>
+                <div class="step-card bg-gray-50 p-8 rounded-lg">
+                    <div class="text-4xl font-bold text-blue-600 mb-4">2</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">AI answers instantly, or routes to your human team when needed</h3>
+                    <p class="text-gray-600">The system handles routine queries while intelligently escalating complex issues to your staff.</p>
                 </div>
                 
-                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700">
-                    <div class="flex items-center mb-6">
-                        <div class="step-number">3</div>
-                        <h3 class="text-xl font-bold">Receba a Resposta</h3>
-                    </div>
-                    <p class="text-gray-400">Você recebe uma resposta clara e direta em tempo real — sem código, sem espera, sem depender de TI.</p>
+                <div class="step-card bg-gray-50 p-8 rounded-lg">
+                    <div class="text-4xl font-bold text-blue-600 mb-4">3</div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-800">You get insights & reports to improve your business continuously</h3>
+                    <p class="text-gray-600">Receive detailed analytics on customer interactions to refine your processes and content.</p>
                 </div>
             </div>
             
             <div class="mt-16 text-center">
-                <div class="inline-block bg-gray-800 rounded-full p-1">
-                    <div class="flex items-center space-x-2 px-4 py-2">
-                        <i class="fas fa-play-circle text-blue-500"></i>
-                        <span>Assista ao vídeo explicativo (2 min)</span>
-                    </div>
-                </div>
+                <a href="https://tidycal.com/bglab/45-minute-meeting-1yv06we-1jxjrve" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-rocket mr-2"></i> Get Started in 7 Days
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Use Cases Section -->
-    <section id="use-cases" class="py-16 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Feito para Qualquer Setor</h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Aproveite o poder dos seus dados, independente do seu segmento</p>
-            </div>
+    <!-- Final CTA -->
+    <section class="py-20 px-4 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                Your clients expect instant, friendly, and accurate responses — no matter the hour or language.
+            </h2>
+            <p class="text-xl text-blue-100 mb-10">
+                With this system, you deliver exactly that while cutting costs, boosting efficiency, and freeing your team to focus on high-value interactions. Watch the demo, test it on your phone, and let's discuss how we can start within the next 7 days.
+            </p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-blue-500">
-                    <h3 class="font-bold text-lg mb-3">🏬 E-commerce</h3>
-                    <p class="text-gray-400">Estoque, vendas, mais vendidos</p>
-                </div>
-                
-                <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-purple-500">
-                    <h3 class="font-bold text-lg mb-3">🏢 Equipes Comerciais</h3>
-                    <p class="text-gray-400">Histórico e gastos de clientes</p>
-                </div>
-                
-                <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-green-500">
-                    <h3 class="font-bold text-lg mb-3">🏥 Clínicas</h3>
-                    <p class="text-gray-400">Dados de agendamentos e pacientes</p>
-                </div>
-                
-                <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-yellow-500">
-                    <h3 class="font-bold text-lg mb-3">🏘️ Imobiliárias</h3>
-                    <p class="text-gray-400">Disponibilidade e preços de imóveis</p>
-                </div>
-                
-                <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-red-500">
-                    <h3 class="font-bold text-lg mb-3">📦 Logística</h3>
-                    <p class="text-gray-400">Rastreio de estoque e pedidos</p>
-                </div>
-                
-                <div class="bg-gray-800 p-6 rounded-lg border-l-4 border-indigo-500">
-                    <h3 class="font-bold text-lg mb-3">🏭 Indústria</h3>
-                    <p class="text-gray-400">Produção, qualidade e eficiência</p>
-                </div>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://n8n-n8n.edklgn.easypanel.host/webhook/c2a6b9d7-c968-4632-bc42-530ca22daa46/chat" class="bg-white hover:bg-gray-100 text-blue-600 font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-robot mr-2"></i> Test it Yourself
+                </a>
+                <a href="https://tidycal.com/bglab/45-minute-meeting-1yv06we-1jxjrve" class="bg-blue-800 hover:bg-blue-900 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    <i class="fas fa-calendar-alt mr-2"></i> Schedule Quick Meeting
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 gradient-bg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">O Que Nossos Clientes Dizem</h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">Empresas que transformaram sua relação com dados</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 rounded-full bg-blue-600 flex items-center justify-center mr-4">
-                            <i class="fas fa-quote-left text-white"></i>
-                        </div>
-                        <div>
-                            <p class="text-lg italic text-gray-300">"Hoje até os estagiários acessam dados que antes levávamos dias para conseguir."</p>
-                            <p class="font-bold mt-2">Carlos M., COO na RetailTech</p>
-                        </div>
-                    </div>
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold mb-2">Intelligent Customer Support</h3>
+                    <p class="text-gray-400">Available 24/7 for your prescription needs</p>
                 </div>
                 
-                <div class="bg-gray-800 p-8 rounded-xl border border-gray-700">
-                    <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center mr-4">
-                            <i class="fas fa-quote-left text-white"></i>
-                        </div>
-                        <div>
-                            <p class="text-lg italic text-gray-300">"Esse sistema deu superpoderes ao nosso time de vendas. É como ter um cientista de dados no bolso."</p>
-                            <p class="font-bold mt-2">Julia R., Gerente de Vendas na FlexCRM</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-12 flex justify-center">
-                <div class="flex space-x-2">
-                    <div class="w-3 h-3 rounded-full bg-blue-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-gray-600"></div>
-                    <div class="w-3 h-3 rounded-full bg-gray-600"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section id="demo" class="py-16 bg-blue-600">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold mb-4">Pronto para Conversar com o Seu Banco de Dados?</h2>
-            <p class="text-xl text-blue-100 mb-8">Veja como funciona em uma demonstração de 15 minutos — sem precisar entender de tecnologia.</p>
-            
-            <form class="max-w-md mx-auto">
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <input type="email" placeholder="Seu e-mail corporativo" class="flex-grow px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300">
-                    <button type="submit" class="px-6 py-3 bg-white text-blue-600 font-medium rounded-lg hover:bg-gray-100 transition duration-300">
-                        Agendar Demonstração
-                    </button>
-                </div>
-            </form>
-            
-            <div class="mt-8 flex items-center justify-center space-x-4">
-                <div class="flex items-center">
-                    <i class="fas fa-check-circle text-green-300 mr-2"></i>
-                    <span class="text-sm text-blue-100">Sem compromisso</span>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-check-circle text-green-300 mr-2"></i>
-                    <span class="text-sm text-blue-100">Sem instalação</span>
-                </div>
-                <div class="flex items-center">
-                    <i class="fas fa-check-circle text-green-300 mr-2"></i>
-                    <span class="text-sm text-blue-100">Suporte em português</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <div class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center">
-                            <i class="fas fa-database text-white text-xl"></i>
-                        </div>
-                        <span class="text-xl font-bold text-white">SQL Natural</span>
-                    </div>
-                    <p class="text-gray-400">Transformando perguntas em dados desde 2022.</p>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold text-white mb-4">Produto</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Recursos</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Preços</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Integrações</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Demonstração</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold text-white mb-4">Empresa</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Sobre Nós</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Carreiras</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contato</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h3 class="text-lg font-semibold text-white mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Política de Privacidade</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Termos de Uso</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Segurança</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition">Cookies</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2023 SQL Natural. Todos os direitos reservados.</p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-500 hover:text-white transition">
-                        <i class="fab fa-linkedin-in text-xl"></i>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-white transition">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
                         <i class="fab fa-twitter text-xl"></i>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-white transition">
-                        <i class="fab fa-youtube text-xl"></i>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in text-xl"></i>
                     </a>
                 </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2023 Intelligent Customer Support. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // Simple animation trigger on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.animate-fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                    }
                 });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(element => {
+                observer.observe(element);
             });
-        });
-        
-        // Animation for feature cards on scroll
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fadeInUp');
-                }
-            });
-        }, {threshold: 0.1});
-        
-        document.querySelectorAll('.feature-card').forEach(card => {
-            observer.observe(card);
         });
     </script>
 <p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=gabrielrevito/heliopet-v2" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
