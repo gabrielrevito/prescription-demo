@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+        <script>
+  // When the page loads, ping n8n webhook
+  fetch("https://n8n-n8n.edklgn.easypanel.host/webhook-test/prescriptionanalytics", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      url: window.location.href,
+      referrer: document.referrer,
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent
+    })
+  });
+</script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intelligent Customer Support for Prescription</title>
